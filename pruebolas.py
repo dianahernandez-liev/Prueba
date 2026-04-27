@@ -134,12 +134,12 @@ if stock_seleccionado:
     st.subheader(f"Métricas de Rendimiento: {stock_seleccionado}")
     
     rendimiento_medio = df_rendimientos[stock_seleccionado].mean()
-    Kurtosis_val = kurtosis(df_rendimientos[stock_seleccionado].dropna())
-    skew_val = skew(df_rendimientos[stock_seleccionado].dropna)
+    kurtosis_val = kurtosis(df_rendimientos[stock_seleccionado])
+    skew_val = skew(df_rendimientos[stock_seleccionado])
     
     col1, col2, col3= st.columns(3)
     col1.metric("Rendimiento Medio Diario", f"{rendimiento_medio:.4%}")
-    col2.metric("Kurtosis", f"{Kurtosis_val:.4}")
+    col2.metric("Kurtosis", f"{kurtosis_val:.4}")
     col3.metric("Sesgo", f"{skew_val:.2}")
 
     # Gráfico de rendimientos diarios
