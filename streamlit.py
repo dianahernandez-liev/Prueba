@@ -9,8 +9,8 @@ import scipy.stats as stats
 st.set_page_config(
     page_title="Análisis de Rendimientos",
     page_icon="📈",
-    
-)
+    )
+st.title("Visualización de Rendimientos de Acciones")
 # st.write('hola')
 st.markdown("""
 <style>
