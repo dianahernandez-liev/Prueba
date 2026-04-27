@@ -9,6 +9,101 @@ import scipy.stats as stats
 st.title("Visualización de Rendimientos de Acciones")
 st.header("Streamlit clase 1 ")
 # st.write('hola')
+st.markdown("""
+<style>
+    /* Main background */
+    .stApp {
+        background: linear-gradient(135deg, #0a0e27 0%, #0f142e 100%);
+    }
+    
+    /* Headers */
+    h1, h2, h3, h4, h5, h6 {
+        color: #00d4ff !important;
+        font-family: 'Courier New', monospace !important;
+        letter-spacing: 2px;
+    }
+    
+    /* Metric cards */
+    .stMetric {
+        background: rgba(16, 20, 46, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    
+    .stMetric label {
+        color: #8892b0 !important;
+        font-size: 14px !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    /* Dataframes */
+    .dataframe {
+        background: rgba(16, 20, 46, 0.6);
+        color: #ccd6f6;
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 8px;
+    }
+    
+    /* Sidebar */
+    .css-1d391kg {
+        background: rgba(10, 14, 39, 0.95);
+        border-right: 1px solid rgba(0, 212, 255, 0.3);
+    }
+    
+    /* Buttons */
+    .stButton button {
+        background: linear-gradient(90deg, #00d4ff 0%, #0066ff 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 24px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    
+    .stButton button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+    }
+    
+    /* Select boxes */
+    .stSelectbox div[data-baseweb="select"] {
+        background: rgba(16, 20, 46, 0.8);
+        border-color: rgba(0, 212, 255, 0.5);
+    }
+    
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 24px;
+        background: rgba(16, 20, 46, 0.5);
+        border-radius: 8px;
+        padding: 8px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        color: #8892b0;
+        font-family: monospace;
+        font-size: 16px;
+    }
+    
+    .stTabs [aria-selected="true"] {
+        color: #00d4ff;
+        border-bottom: 2px solid #00d4ff;
+    }
+    
+    /* Info boxes */
+    .stAlert {
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        border-radius: 8px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 @st.cache_data
 def obtener_datos(stocks):
     df = yf.download(stocks, start="2010-01-01")['Close']
