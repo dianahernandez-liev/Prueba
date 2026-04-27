@@ -146,7 +146,7 @@ if stock_seleccionado:
     st.subheader(f"Gráfico de Rendimientos: {stock_seleccionado}")
     #Estilo general de las gráficas
     plt.style.use('dark_background')
-    fig, ax = plt.subplots(figsize=(13, 5))
+    fig, ax = plt.subplots(figsize=(13, 5),facecolor='#0a0e27')
     ax.plot(df_rendimientos.index, df_rendimientos[stock_seleccionado], label=stock_seleccionado)
     ax.axhline(y=0, color='r', linestyle='--', alpha=0.7)
     ax.set_title(f"Rendimientos de {stock_seleccionado}")
@@ -157,7 +157,7 @@ if stock_seleccionado:
     st.pyplot(fig)
     # Histograma de rendimientos
     st.subheader("Distribución de Rendimientos")
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(10, 5), facecolor='#0a0e27')
     ax.hist(df_rendimientos[stock_seleccionado], bins=30, alpha=0.7, color='#34edf3', edgecolor='black')
     ax.axvline(rendimiento_medio, color='red', linestyle='dashed', linewidth=2, label=f"Promedio: {rendimiento_medio:.4%}")
     ax.set_title("Histograma de Rendimientos")
