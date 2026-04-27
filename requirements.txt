@@ -4,4 +4,4 @@ pandas
 numpy
 scipy
 matplotlib
-plotly.graph_objects
+
