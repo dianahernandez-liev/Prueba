@@ -11,7 +11,7 @@ st.header("Streamlit clase 1 ")
 # st.write('hola')
 @st.cache_data
 def obtener_datos(stocks):
-    df = yf.download(stocks, period="1y")['Close']
+    df = yf.download(stocks, start="2010-01-01")['Close']
     return df
 
 @st.cache_data
