@@ -144,8 +144,6 @@ if stock_seleccionado:
 
     # Gráfico de rendimientos diarios
     st.subheader(f"Gráfico de Rendimientos: {stock_seleccionado}")
-    #Estilo general de las gráficas
-    plt.style.use('dark_background')
     fig, ax = plt.subplots(figsize=(13, 5),facecolor='#0a0e27')
     ax.plot(df_rendimientos.index, df_rendimientos[stock_seleccionado], label=stock_seleccionado)
     ax.axhline(y=0, color='r', linestyle='--', alpha=0.7)
