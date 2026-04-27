@@ -8,10 +8,8 @@ import scipy.stats as stats
 
 st.set_page_config(
     page_title="Análisis de Rendimientos",
-    page_icon="📈",
+    page_icon=":chart_with_upwards_trend:",
     )
-st.title("Visualización de Rendimientos de Acciones")
-# st.write('hola')
 st.markdown("""
 <style>
     /* Main background */
@@ -72,11 +70,18 @@ st.markdown("""
         transform: translateY(-2px);
         box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
     }
+     /* Select Box General Styles */
+    div[data-baseweb="select"] {
+        background: rgba(16, 20, 46, 0.8) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 212, 255, 0.3) !important;
+        border-radius: 8px !important;
+        transition: all 0.3s ease;
+    }
     
-    /* Select boxes */
-    .stSelectbox div[data-baseweb="select"] {
-        background: rgba(16, 20, 46, 0.8);
-        border-color: rgba(0, 212, 255, 0.5);
+    div[data-baseweb="select"]:hover {
+        border-color: rgba(0, 212, 255, 0.8) !important;
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
     }
     
     /* Tabs */
@@ -106,6 +111,9 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+st.title("Visualización de Rendimientos de Acciones")
+st.header("Media, Kurtosisis y Sesgo")
 
 @st.cache_data
 def obtener_datos(stocks):
