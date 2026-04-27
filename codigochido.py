@@ -491,7 +491,7 @@ if stock_seleccionado:
 
     st.subheader("Evaluación de Violaciones del VaR")
     contador = 0
-    for i in range(len(df_rendimientos[stock_seleccionado])):
+    for i in range(len(hVaR_95_rolling_percent)-1, -1, -1):
         if df_rendimientos[stock_seleccionado].iloc[i] < hVaR_95_rolling.iloc[i]:
             contador += 1
     # Calcular porcentaje de violaciones
@@ -531,7 +531,7 @@ if stock_seleccionado:
 
     st.subheader("Evaluación de Violaciones del VaR")
     contador_2 = 0
-    for i in range(len(df_rendimientos[stock_seleccionado])):
+    for i in range(len(hVaR_95_rolling_percent)-1, -1, -1):
         if df_rendimientos[stock_seleccionado].iloc[i] < hVaR_99_rolling.iloc[i]:
             contador_2 += 1
     # Calcular porcentaje de violaciones
