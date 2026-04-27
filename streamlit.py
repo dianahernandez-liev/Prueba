@@ -6,8 +6,11 @@ import matplotlib.pyplot as plt
 from scipy.stats import kurtosis, skew ,norm, shapiro
 import scipy.stats as stats
 
-st.title("Visualización de Rendimientos de Acciones")
-st.header("Streamlit clase 1 ")
+st.set_page_config(
+    page_title="Análisis de Rendimientos",
+    page_icon="📈",
+    
+)
 # st.write('hola')
 st.markdown("""
 <style>
