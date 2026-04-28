@@ -559,7 +559,7 @@ if stock_seleccionado:
     ax.plot(df_rendimientos.index, sigma_VaR_99_rolling_percent, label='99% Rolling VaR con volatilidad constante', color='#00ff88', linewidth=2)
     ax.plot(df_rendimientos.index, sigma_VaR_95_rolling_percent, label='95% Rolling VaR con volatilidad constante', color="#440351", linewidth=2)
     #Configurar etiquetas y leyenda
-    ax.set_title(f'99% Rolling VaR - {stock_seleccionado}', fontsize=14, fontweight='bold', color='#00d4ff', fontfamily='monospace', pad=20)
+    ax.set_title(f'VaR con volatilidad móvil - {stock_seleccionado}', fontsize=14, fontweight='bold', color='#00d4ff', fontfamily='monospace', pad=20)
     ax.set_xlabel('Fecha', fontsize=11, color='#8892b0', fontfamily='monospace', fontweight='bold')
     ax.set_ylabel('VaR (%)', fontsize=11, color='#8892b0', fontfamily='monospace', fontweight='bold')
     ax.legend(loc='upper left', facecolor='#0f142e', edgecolor='#00d4ff')
@@ -567,7 +567,7 @@ if stock_seleccionado:
     # Mostrar la figura
     st.pyplot(fig)
     
-    st.subheader("Evaluación de Violaciones del VaR")
+    st.subheader("Evaluación de Violaciones del VaR al 95 con volatilidad móvil")
     
     contador_ = 0
     for i in range(len(sigma_VaR_95_rolling)-1, -1, -1):
@@ -581,7 +581,7 @@ if stock_seleccionado:
     col2.metric("Porcentaje de Violaciones", f"{porcentaje_violaciones:.2f}%")
     col3.metric("Total de Días", f"{len(df_rendimientos[stock_seleccionado])}")
 
-    st.subheader("Evaluación de Violaciones del VaR")
+    st.subheader("Evaluación de Violaciones del VaR al 99 con volatilidad móvil")
     
     contador9 = 0
     for i in range(len(sigma_VaR_99_rolling)-1, -1, -1):
