@@ -541,11 +541,14 @@ if stock_seleccionado:
     col1.metric("Violaciones", f"{contador_2}")
     col2.metric("Porcentaje de Violaciones", f"{porcentaje_violaciones:.2f}%")
     col3.metric("Total de Días", f"{len(df_rendimientos[stock_seleccionado])}")
+    
 
-        ##Rolling Windows VaR con volatilidad constante
-    st.header("Rolling Windows VaR con Volatilidad Constante")
-    sigma_VaR_95_rolling = df_rendimientos[stock_seleccionado].rolling(window=252).std() * norm.ppf(1-0.95)*100
-    sigma_VaR_99_rolling = df_rendimientos[stock_seleccionado].rolling(window=252).std() * norm.ppf(1-0.99)*100
+     ##Rolling Windows VaR con volatilidad constante
+    st.header("Rolling Windows VaR con Volatilidad Móvil")
+    sigma_VaR_95_rolling = df_rendimientos[stock_seleccionado].rolling(window=252).std() * norm.ppf(1-0.95)
+    sigma_VaR_95_rolling_percent=sigma_VaR_95_rolling*100
+    sigma_VaR_99_rolling = df_rendimientos[stock_seleccionado].rolling(window=252).std() * norm.ppf(1-0.99)
+    sigma_VaR_99_rolling_percent=sigma_VaR_99_rolling*100
 
     # Crear la figura y el eje
     fig, ax = plt.subplots(figsize=(13, 5), facecolor='#0a0e27')
@@ -553,8 +556,8 @@ if stock_seleccionado:
     ax.plot(df_rendimientos[stock_seleccionado].index, df_rendimientos[stock_seleccionado] * 100, label='Retornos diarios (%)', color='#34edf3', alpha=0.5)
 
     
-    ax.plot(df_rendimientos.index, sigma_VaR_99_rolling, label='99% Rolling VaR con volatilidad constante', color='#00ff88', linewidth=2)
-    ax.plot(df_rendimientos.index, sigma_VaR_95_rolling, label='95% Rolling VaR con volatilidad constante', color="#440351", linewidth=2)
+    ax.plot(df_rendimientos.index, sigma_VaR_99_rolling_percent, label='99% Rolling VaR con volatilidad constante', color='#00ff88', linewidth=2)
+    ax.plot(df_rendimientos.index, sigma_VaR_95_rolling_percent, label='95% Rolling VaR con volatilidad constante', color="#440351", linewidth=2)
     #Configurar etiquetas y leyenda
     ax.set_title(f'99% Rolling VaR - {stock_seleccionado}', fontsize=14, fontweight='bold', color='#00d4ff', fontfamily='monospace', pad=20)
     ax.set_xlabel('Fecha', fontsize=11, color='#8892b0', fontfamily='monospace', fontweight='bold')
